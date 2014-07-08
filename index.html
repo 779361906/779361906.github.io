@@ -36,7 +36,7 @@
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">code ⊙▽⊙</a>
+          <a href="/" id="subtitle">code ⊙▽⊙ code.</a>
         </h2>
       
     </div>
@@ -128,14 +128,13 @@ $ git <span class="keyword">push</span> -u origin master
 </pre></td></tr></table></figure>
 
 <p>打开<code>_config.yml</code>文件，将文件最后面的</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 </pre></td><td class="code"><pre>deploy:
   <span class="class"><span class="keyword">type</span>: </span>
   repo:
-</pre></td></tr></table></figure><br>改成：</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td></tr></table></figure><br>改成：<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -143,14 +142,30 @@ $ git <span class="keyword">push</span> -u origin master
   type: github
   repo: git@github<span class="preprocessor">.com</span>:yourgithubname/yourgithubname<span class="preprocessor">.github</span><span class="preprocessor">.io</span><span class="preprocessor">.git</span>
   branch: master
-</pre></td></tr></table></figure><br>保存</p>
-<p>使用Git Bash，将路径切换到你的hexo项目路径。输入<code>$ hexo generate</code>生成静态的博文,输入<code>$  hexo deploy</code>将博客部署到github上。</p>
-<p>到此恭喜你已经完成Hexo博客部署到github的整个过程了，赶紧前往<code>yourgithubname.github.io</code>去看看吧</p>
+</pre></td></tr></table></figure><br>保存<br><br>使用Git Bash，将路径切换到你的hexo项目路径。输入<code>$ hexo generate</code>生成静态的博文,输入<code>$  hexo deploy</code>将博客部署到github上。<br><br>到此恭喜你已经完成Hexo博客部署到github的整个过程了，赶紧前往<code>yourgithubname.github.io</code>去看看吧<br><br>—-<br><br>## 托管到gitcafe<br><br>#### 为什么选择gitcafe？<br><br>gitcafe社区是国内版的github，使用gitcafe作为博客国内访问更加便捷，速度也比较快。<br><br>使用gitcafe托管和使用github托管操作方式基本差不多，两个需要注意的地方是：<br><br>1. 项目名不再是<code>yourname.github.io</code>而是<code>yourname</code><br><br>2. <code>_config.yml</code>文件<br> <figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="label">deploy:</span>
+ type: github
+ repo: git@github<span class="preprocessor">.com</span>:<span class="number">779361906</span>/<span class="number">779361906.</span>github<span class="preprocessor">.io</span><span class="preprocessor">.git</span>
+ branch: master
+</pre></td></tr></table></figure><br>  改为<br><br> <figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="label">deploy:</span>
+ type: github
+ repo: git@gitcafe<span class="preprocessor">.com</span>:wuwii/wuwii<span class="preprocessor">.git</span>
+ origin: gitcafe-pages
+</pre></td></tr></table></figure>
+
+<p>项目的预览地址是：<code>http://用户名.gitcafe.com/</code> 示例：<a href="http://wuwii.gitcafe.com/" target="_blank" rel="external">http://wuwii.gitcafe.com/</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/08/使用Hexo搭建博客/" data-id="7i58g4r26jfuy7jb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/08/使用Hexo搭建博客/" data-id="0an6xoldy5dtc5lx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -212,7 +227,7 @@ $ git <span class="keyword">push</span> -u origin master
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/08/hello-world/" data-id="in0eubzpc4ossnyy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/08/hello-world/" data-id="h8kjfkftv3ml6lqi" class="article-share-link">Share</a>
       
       
     </footer>
