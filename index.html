@@ -64,6 +64,105 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-使用Hexo搭建博客" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/07/08/使用Hexo搭建博客/" class="article-date">
+  <time datetime="2014-07-08T08:18:39.000Z" itemprop="datePublished">7月 8 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/07/08/使用Hexo搭建博客/">使用Hexo搭建博客（Windows篇）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="关于Hexo">关于Hexo</h2>
+<p>Hexo是基于node.js的静态博客网站生成器，支持Markdown文件格式</p>
+<p><a href="http://hexo.io/" target="_blank" rel="external">Hexo官网</a></p>
+<h2 id="准备工作">准备工作</h2>
+<ul>
+<li>安装Node.js  <a href="http://nodejs.org/" target="_blank" rel="external">官网</a></li>
+<li>安装 Git  <a href="http://www.git-scm.com/" target="_blank" rel="external">官网</a></li>
+<li>注册 github 账户 <a href="http://github.com" target="_blank" rel="external">注册</a></li>
+</ul>
+<h2 id="开始搭建Hexo">开始搭建Hexo</h2>
+<p>安装完Node.js后，通过node.js安装Hexo。在端口输入：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>npm install hexo -g
+</pre></td></tr></table></figure>
+
+<p>安装完成之后，输入：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="comment">$</span> <span class="comment">hexo</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">version</span>
+</pre></td></tr></table></figure><br>确认安装成功，得到Hexo的版本的信息：<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="attribute">hexo</span>: <span class="string">2.7.1</span>
+</pre></td></tr></table></figure><br>创建Hexo项目，<code>&lt;folder&gt;</code>是你的项目名称,请自行替换。<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>hexo init &lt;folder&gt;
+</pre></td></tr></table></figure><br>这里只是创建了Hexo的一些默认文件，并没有可执行的js文件，需要通过package.json安装依赖的库，代码如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="variable">$ </span>cd &lt;folder&gt;
+<span class="variable">$ </span>npm install
+</pre></td></tr></table></figure><br>到这里已经装好你的Hexo了。（如果你npm install后文件加载速度较慢或加载失败，请重试并耐心等待或者使用淘宝的npm镜像，使用方法请点击<a href="http://npm.taobao.org/" target="_blank" rel="external">淘宝 NPM 镜像</a><br><br>启动Hexo服务<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>hexo server
+</pre></td></tr></table></figure><br>打开 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> ,就可以看到你的博客了<br><br>## 上传Hexo到你的github上<br><br>首先你需要有一个github账户，登录后点击右上方的 <code>+</code> 号 选择<code>new repository</code>。<br>在<code>Repository name</code>填上你的github用户名+github.io<br>例如用户名是test，则填上<code>test.github.io</code>。然后点击<code>Create repository</code><br>创建repository之后你需要对其进行初始化。在初始化你的repository之前你需要创建你的SSH密钥并上传到你的github上，方法如下：<br><br>打开Git Bash，输入：<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ ssh<span class="attribute">-keygen</span> <span class="attribute">-t</span> rsa <span class="attribute">-C</span> <span class="string">"your_email"</span>
+</pre></td></tr></table></figure><br>将<code>C:\Users\系统用户\.ssh</code>里的<code>id_rsa.pub</code>内的内容复制到github上。方法如下：<br>&gt;点击github页面的右上方的工具图标（Account settings），选择<code>SSH keys</code><br>&gt;点击<code>Add SSH key</code>，将 id_rsa.pub 文件内容复制到<code>Key</code>框内，Title可自命名。最后选择保存即可。<br><br>初始化repository<br><br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>$ touch README<span class="preprocessor">.md</span>
+$ git init
+$ git <span class="keyword">add</span> README<span class="preprocessor">.md</span>
+$ git commit -m <span class="string">"first commit"</span>
+$ git remote <span class="keyword">add</span> origin git@github<span class="preprocessor">.com</span>:yourgithubname/yourgithubname<span class="preprocessor">.github</span><span class="preprocessor">.io</span><span class="preprocessor">.git</span>
+$ git <span class="keyword">push</span> -u origin master
+</pre></td></tr></table></figure>
+
+<p>打开<code>_config.yml</code>文件，将文件最后面的</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>deploy:
+  <span class="class"><span class="keyword">type</span>: </span>
+  repo:
+</pre></td></tr></table></figure><br>改成：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="label">deploy:</span>
+  type: github
+  repo: git@github<span class="preprocessor">.com</span>:yourgithubname/yourgithubname<span class="preprocessor">.github</span><span class="preprocessor">.io</span><span class="preprocessor">.git</span>
+  branch: master
+</pre></td></tr></table></figure><br>保存</p>
+<p>使用Git Bash，将路径切换到你的hexo项目路径。输入<code>$ hexo generate</code>生成静态的博文,输入<code>$  hexo deploy</code>将博客部署到github上。</p>
+<p>到此恭喜你已经完成Hexo博客部署到github的整个过程了，赶紧前往<code>yourgithubname.github.io</code>去看看吧</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/07/08/使用Hexo搭建博客/" data-id="ns9u3jrp217k4cj2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/07/08/hello-world/" class="article-date">
@@ -116,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/08/hello-world/" data-id="5oay44g5ah0s2eo4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/08/hello-world/" data-id="wvw46cdtz32dchrj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -141,7 +240,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">七月 2014</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">七月 2014</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -151,6 +250,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/07/08/使用Hexo搭建博客/">使用Hexo搭建博客（Windows篇）</a>
+          </li>
         
           <li>
             <a href="/2014/07/08/hello-world/">Hello World</a>
