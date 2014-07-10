@@ -90,148 +90,16 @@
 <h4 id="1-为什么使用要在node-js下使用子进程？">1.为什么使用要在node.js下使用子进程？</h4>
 <p>node.js是单线程的，为了防止主线程阻塞，nodejs通常需要开启多个子进程来处理比较消耗时间的请求。使用子进程还可以保护主进程，防止一旦某进程奔溃造成整个系统的奔溃。</p>
 <h4 id="2-node-js怎么管理进程">2.node.js怎么管理进程</h4>
-<p>nodejs通过process模块来管理进程的，其中常用的有</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre><span class="built_in">process</span>.<span class="keyword">stdin</span>
-<span class="built_in">process</span>.<span class="keyword">stdout</span>
-<span class="built_in">process</span>.<span class="keyword">stderr</span>
-<span class="built_in">process</span>.env
-<span class="built_in">process</span>.pid
-<span class="built_in">process</span>.<span class="built_in">kill</span>(pid, [signal])
-Event: <span class="string">'exit'</span>
-</pre></td></tr></table></figure><br>分别是进程的标准输入输出，报错，进程环境，pid码和关闭进程是使用。具体的使用方法请参照<a href="http://nodejs.org/api/process.html" target="_blank" rel="external">官方文档</a></p>
-<h4 id="3-如何创建子进程">3.如何创建子进程</h4>
-<p>nodejs使用child_process模块来管理子进程，包括创建和通信。</p>
-<p>创建子进程nodejs为我们提供这么4仲方法：</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="tag">child_process</span><span class="class">.spawn</span>(<span class="tag">command</span>, <span class="attr_selector">[args]</span>, <span class="attr_selector">[options]</span>)
-<span class="tag">child_process</span><span class="class">.exec</span>(<span class="tag">command</span>, <span class="attr_selector">[options]</span>, <span class="tag">callback</span>)
-<span class="tag">child_process</span><span class="class">.execFile</span>(<span class="tag">file</span>, <span class="attr_selector">[args]</span>, <span class="attr_selector">[options]</span>, <span class="attr_selector">[callback]</span>)
-<span class="tag">child_process</span><span class="class">.fork</span>(<span class="tag">modulePath</span>, <span class="attr_selector">[args]</span>, <span class="attr_selector">[options]</span>)
-</pre></td></tr></table></figure><br>其中exec、execFile和fork都是对spawn的封装，使操作更容易。但是需要注意的是使用exec时应注意进程间的通信数据是有限制的，超过200K的时候会报错误信息“Error：maxBuffer exceeded”，fork是不能执行command的，只能执行nodejs的命令。下面展示的是使用spawn的使用方法：</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="code"><pre>var scp = require(<span class="string">'child_process'</span>).spawn(<span class="string">'node'</span>, <span class="matrix">[<span class="string">'./child'</span>]</span>, <span class="cell">{}</span>);
-    <span class="transposed_variable">scp.</span><span class="transposed_variable">stdout.</span>on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(data)</span> {</span>
-        <span class="transposed_variable">console.</span><span class="built_in">log</span>(<span class="string">'stdout: '</span> + data);
-    });
-    <span class="transposed_variable">scp.</span><span class="transposed_variable">stderr.</span>on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(data)</span> {</span>
-        <span class="transposed_variable">console.</span><span class="built_in">log</span>(<span class="string">'stderr: '</span> + data);
-    });
-    <span class="transposed_variable">scp.</span>on(<span class="string">'exit'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(code)</span> {</span>
-        <span class="transposed_variable">console.</span><span class="built_in">log</span>(<span class="string">'child process exited with code '</span> + code);
-    });
-</pre></td></tr></table></figure><br>options默认的值是：</p>
-<blockquote>
-<p>{<br>    cwd: undefined,<br>    env: process.env,<br>    setsid: false<br>  }</p>
-</blockquote>
-<p>更多详细的使用方法请参照<a href="https://www.byvoid.com/blog/node-child-process-ipc" target="_blank" rel="external">byvoid大神的博客</a>和<a href="http://nodejs.org/api/child_process.html" target="_blank" rel="external">官方使用文档</a></p>
-<h4 id="4-练习：创建子进程（简单的express）并在30秒后关闭">4.练习：创建子进程（简单的express）并在30秒后关闭</h4>
-<p>假定你已经装好express，若没有请到？？？查看安装教程</p>
-<p>在你的工作目录下创建express项目</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="variable">$ </span>express test
-</pre></td></tr></table></figure><br>完成后</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="built_in">cd</span> test && npm install
-</pre></td></tr></table></figure><br>返回你的工作目录</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="built_in">cd</span> ..
-</pre></td></tr></table></figure><br>创建test.js文件并编辑为以下内容：</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-</pre></td><td class="code"><pre><span class="keyword">var</span> cp = <span class="built_in">require</span>(<span class="string">'child_process'</span>);
-newChildProcess(<span class="number">3000</span>);
-newChildProcess(<span class="number">4000</span>);
-
-<span class="function"><span class="keyword">function</span> <span class="title">newChildProcess</span><span class="params">(port)</span>{</span>
-    <span class="keyword">var</span> child_evn = process.env;
-        child_evn.PORT = port;
-      <span class="keyword">var</span> scp = cp.spawn(<span class="string">'node'</span>, [<span class="string">'./test/app'</span>], {
-        cwd: <span class="literal">undefined</span>,
-        env: child_evn,
-        setsid: <span class="literal">false</span>
-        });
-    scp.stdout.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(data)</span> {</span>
-        console.log(<span class="string">'stdout: '</span> + data);
-    });
-    scp.stderr.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(data)</span> {</span>
-        console.log(<span class="string">'stderr: '</span> + data);
-    });
-    scp.on(<span class="string">'exit'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(code)</span> {</span>
-        console.log(<span class="string">'child process exited with code '</span> + code);
-    });
-    controlChildProcess(scp);
-}
-<span class="function"><span class="keyword">function</span> <span class="title">controlChildProcess</span><span class="params">(cp)</span>{</span>
-    <span class="comment">//console.log('callbrack function at controlChildProcess');</span>
-    setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-        cp.kill(<span class="string">'SIGINT'</span>);
-    },<span class="number">3000</span>);
-}
-</pre></td></tr></table></figure><br>运行</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>node test
-</pre></td></tr></table></figure><br>你会看到</p>
-<blockquote>
-<p>stdout: Express server listening on port 3000</p>
-<p>stdout: Express server listening on port 4000</p>
-</blockquote>
-<p>这时候打开<a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> 和 <a href="http://127.0.0.1:4000" target="_blank" rel="external">http://127.0.0.1:4000</a> 两个网页你可以看到express的欢迎界面。30秒后命令窗口后出现以下内容：</p>
-<blockquote>
-<p>child process exited with code null</p>
-<p>child process exited with code null</p>
-</blockquote>
-<p>现在刷新<a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> 和 <a href="http://127.0.0.1:4000" target="_blank" rel="external">http://127.0.0.1:4000</a> 两个网页，后发现无法访问，证明两个子进程已经关闭。</p>
-
+<p>
+        
+          <p class="article-more-link">
+            <a href="/2014/07/10/nodejs的childprocess简单使用/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/10/nodejs的childprocess简单使用/" data-id="gzyybl5v8hzivy1p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/10/nodejs的childprocess简单使用/" data-id="v5vdvwp19u1xjcll" class="article-share-link">Share</a>
       
       
     </footer>
@@ -274,7 +142,7 @@ newChildProcess(<span class="number">4000</span>);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/10/Unity学习笔--Day1/" data-id="151yh19lbt201qpl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/10/Unity学习笔--Day1/" data-id="onqy282m0k1nvs7l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -319,7 +187,7 @@ newChildProcess(<span class="number">4000</span>);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/09/Ubuntu主机下使用Nginx搭建nodejs+mongodb服务器/" data-id="oxmjureltw6ntzkw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/09/Ubuntu主机下使用Nginx搭建nodejs+mongodb服务器/" data-id="ftv4x46xi974njaq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -369,7 +237,7 @@ newChildProcess(<span class="number">4000</span>);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/08/使用Hexo搭建博客/" data-id="h6xtamuigzhokqpq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/08/使用Hexo搭建博客/" data-id="2kghy9zc0hroc63b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -412,7 +280,7 @@ newChildProcess(<span class="number">4000</span>);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/08/hello-world/" data-id="pfgskmqdcx7odm6h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/08/hello-world/" data-id="44yteiqh9ckh3oe7" class="article-share-link">Share</a>
       
       
     </footer>
