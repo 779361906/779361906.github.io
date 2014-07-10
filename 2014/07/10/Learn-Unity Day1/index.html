@@ -9,7 +9,7 @@
 Unity是由Unity Technologies开发的专业游戏引擎。可在Windows 和Mac OS X下开发，可发布游戏至Windows、Mac、Wii、iPhone、Windows phone 8和Android平台。也可以利用Unity web player插件发布网页游戏，支持Mac 和Windows的网页浏览。更多信息请参考百度百科">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Unity学习笔--Day1">
-<meta property="og:url" content="http://yoursite.com/2014/07/10/Unity学习笔--Day1/">
+<meta property="og:url" content="http://yoursite.com/2014/07/10/Learn-Unity Day1/">
 <meta property="og:site_name" content="编码的小螃蟹">
 <meta property="og:description" content="About Unity
 Unity是由Unity Technologies开发的专业游戏引擎。可在Windows 和Mac OS X下开发，可发布游戏至Windows、Mac、Wii、iPhone、Windows phone 8和Android平台。也可以利用Unity web player插件发布网页游戏，支持Mac 和Windows的网页浏览。更多信息请参考百度百科">
@@ -65,9 +65,9 @@ Unity是由Unity Technologies开发的专业游戏引擎。可在Windows 和Mac 
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Unity学习笔--Day1" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Learn-Unity Day1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/07/10/Unity学习笔--Day1/" class="article-date">
+    <a href="/2014/07/10/Learn-Unity Day1/" class="article-date">
   <time datetime="2014-07-10T02:56:33.000Z" itemprop="datePublished">7月 10 2014</time>
 </a>
     
@@ -121,13 +121,25 @@ Unity是由Unity Technologies开发的专业游戏引擎。可在Windows 和Mac 
 insensity ：<span class="number">0.7</span> 光照强度
 </pre></td></tr></table></figure></li>
 <li>创建走动物体，将project面板内的Asset — Standard Assets — Character Controllers的“Frist Person Contrler”拖到Hierarchy面板。设置Transform属性的position的y值为1.1。使这个物体高于cube（地面）。防止播放时人物掉到地面下。删除Hierarchy中多余的Main Camera。</li>
-<li>为了方便操作和识别，将创建的物品规范命名。地板—</li>
+<li>为了方便操作和识别，将创建的物品规范命名。地板—floor,灯光—light</li>
+<li>创建箱子，Game Object —&gt; Crate Other —&gt; Cube,选中箱子，调整其位置在摄像机的视野内且高于地面，否则游戏播放时，箱子会掉落到视野外。执行 Component(在菜单栏) —&gt; Physics —&gt; Rigidbody，为箱子添加物理属性（比如重力）。这时候游戏开始时，箱子会掉落到地面上。</li>
+<li>绘制地形，Hierarchy面板 Crate —&gt; Terrain。选中Terrain，点击Inspector面板的Terrain（Script）前面的小三角型展开Terrain（Script）的属性设置，对Resolution属性进行修改为（地图的大小）：<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>Terrain Width : <span class="number">200</span>
+Terrain <span class="keyword">Length</span> : <span class="number">200</span>
+</pre></td></tr></table></figure></li>
+<li>添加平行光，Game Object —&gt; Crate Other —&gt;Directional Light ,选中并调整属性为：<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="attribute">position</span>: <span class="string">x =0,y=3,z=0</span>
+<span class="attribute">rotation</span>: <span class="string">x=17,y=0,z=0</span>
+</pre></td></tr></table></figure><br>是灯光柔和、均匀。</li>
+<li></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/10/Unity学习笔--Day1/" data-id="r6vuk5dgejx60iwu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/10/Learn-Unity Day1/" data-id="ckz3ptq3cqjgkrua" class="article-share-link">Share</a>
       
       
     </footer>
@@ -136,7 +148,7 @@ insensity ：<span class="number">0.7</span> 光照强度
     
 <nav id="article-nav">
   
-    <a href="/2014/07/10/nodejs的childprocess简单使用/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/07/10/use-childprocess-in-nodejs/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -146,7 +158,7 @@ insensity ：<span class="number">0.7</span> 光照强度
     </a>
   
   
-    <a href="/2014/07/09/Ubuntu主机下使用Nginx搭建nodejs+mongodb服务器/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/07/09/use nginx mongodb nodejs in ubuntu/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Ubuntu主机下使用Nginx搭建nodejs+mongodb服务器</div>
     </a>
@@ -182,19 +194,19 @@ insensity ：<span class="number">0.7</span> 光照强度
       <ul>
         
           <li>
-            <a href="/2014/07/10/nodejs的childprocess简单使用/">nodejs的childprocess简单使用</a>
+            <a href="/2014/07/10/use-childprocess-in-nodejs/">nodejs的childprocess简单使用</a>
           </li>
         
           <li>
-            <a href="/2014/07/10/Unity学习笔--Day1/">Unity学习笔--Day1</a>
+            <a href="/2014/07/10/Learn-Unity Day1/">Unity学习笔--Day1</a>
           </li>
         
           <li>
-            <a href="/2014/07/09/Ubuntu主机下使用Nginx搭建nodejs+mongodb服务器/">Ubuntu主机下使用Nginx搭建nodejs+mongodb服务器</a>
+            <a href="/2014/07/09/use nginx mongodb nodejs in ubuntu/">Ubuntu主机下使用Nginx搭建nodejs+mongodb服务器</a>
           </li>
         
           <li>
-            <a href="/2014/07/08/使用Hexo搭建博客/">使用Hexo搭建博客（Windows篇）</a>
+            <a href="/2014/07/08/use hexo/">使用Hexo搭建博客（Windows篇）</a>
           </li>
         
           <li>

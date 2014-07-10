@@ -7,21 +7,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Node.js的进程机制
 1.为什么使用要在node.js下使用子进程？
-node.js是单线程的，为了防止主线程阻塞，nodejs通常需要开启多个子进程来处理比较消耗时间的请求。使用子进程还可以保护主进程，防止一旦某进程奔溃造成整个系统的奔溃。
+node.js是单线程的，对于系统而言有些请求是需要消耗较多时间的，比如处理上传文件。如果我们把所有的请求都交给主进程进行处理，那么会造成很大的资源浪费。所以nodejs通常需要开启多个子进程来处理比较消耗时间的请求。
 2.node.js怎么管理进程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nodejs的childprocess简单使用">
-<meta property="og:url" content="http://yoursite.com/2014/07/10/nodejs的childprocess简单使用/">
+<meta property="og:url" content="http://yoursite.com/2014/07/10/use-childprocess-in-nodejs/">
 <meta property="og:site_name" content="编码的小螃蟹">
 <meta property="og:description" content="Node.js的进程机制
 1.为什么使用要在node.js下使用子进程？
-node.js是单线程的，为了防止主线程阻塞，nodejs通常需要开启多个子进程来处理比较消耗时间的请求。使用子进程还可以保护主进程，防止一旦某进程奔溃造成整个系统的奔溃。
+node.js是单线程的，对于系统而言有些请求是需要消耗较多时间的，比如处理上传文件。如果我们把所有的请求都交给主进程进行处理，那么会造成很大的资源浪费。所以nodejs通常需要开启多个子进程来处理比较消耗时间的请求。
 2.node.js怎么管理进程">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nodejs的childprocess简单使用">
 <meta name="twitter:description" content="Node.js的进程机制
 1.为什么使用要在node.js下使用子进程？
-node.js是单线程的，为了防止主线程阻塞，nodejs通常需要开启多个子进程来处理比较消耗时间的请求。使用子进程还可以保护主进程，防止一旦某进程奔溃造成整个系统的奔溃。
+node.js是单线程的，对于系统而言有些请求是需要消耗较多时间的，比如处理上传文件。如果我们把所有的请求都交给主进程进行处理，那么会造成很大的资源浪费。所以nodejs通常需要开启多个子进程来处理比较消耗时间的请求。
 2.node.js怎么管理进程">
   
     <link rel="alternative" href="/atom.xml" title="编码的小螃蟹" type="application/atom+xml">
@@ -71,9 +71,9 @@ node.js是单线程的，为了防止主线程阻塞，nodejs通常需要开启�
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-nodejs的childprocess简单使用" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-use-childprocess-in-nodejs" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/07/10/nodejs的childprocess简单使用/" class="article-date">
+    <a href="/2014/07/10/use-childprocess-in-nodejs/" class="article-date">
   <time datetime="2014-07-10T08:14:33.000Z" itemprop="datePublished">7月 10 2014</time>
 </a>
     
@@ -95,7 +95,7 @@ node.js是单线程的，为了防止主线程阻塞，nodejs通常需要开启�
       
         <h2 id="Node-js的进程机制">Node.js的进程机制</h2>
 <h4 id="1-为什么使用要在node-js下使用子进程？">1.为什么使用要在node.js下使用子进程？</h4>
-<p>node.js是单线程的，为了防止主线程阻塞，nodejs通常需要开启多个子进程来处理比较消耗时间的请求。使用子进程还可以保护主进程，防止一旦某进程奔溃造成整个系统的奔溃。</p>
+<p>node.js是单线程的，对于系统而言有些请求是需要消耗较多时间的，比如处理上传文件。如果我们把所有的请求都交给主进程进行处理，那么会造成很大的资源浪费。所以nodejs通常需要开启多个子进程来处理比较消耗时间的请求。</p>
 <h4 id="2-node-js怎么管理进程">2.node.js怎么管理进程</h4>
 <p><a id="more"></a><br>nodejs通过process模块来管理进程的，其中常用的有</p>
 <p><figure class="highlight"><table><tr><td class="gutter"><pre>1
@@ -112,7 +112,7 @@ node.js是单线程的，为了防止主线程阻塞，nodejs通常需要开启�
 <span class="built_in">process</span>.pid
 <span class="built_in">process</span>.<span class="built_in">kill</span>(pid, [signal])
 Event: <span class="string">'exit'</span>
-</pre></td></tr></table></figure><br>分别是进程的标准输入输出，报错，进程环境，pid码和关闭进程是使用。具体的使用方法请参照<a href="http://nodejs.org/api/process.html" target="_blank" rel="external">官方文档</a></p>
+</pre></td></tr></table></figure><br>分别是进程的标准输入输出，报错，进程环境，pid码和关闭进程是使用。具体的使用方法请参照官方文档<a href="http://nodejs.org/api/process.html" target="_blank" rel="external">http://nodejs.org/api/process.html</a></p>
 <h4 id="3-如何创建子进程">3.如何创建子进程</h4>
 <p>nodejs使用child_process模块来管理子进程，包括创建和通信。</p>
 <p>创建子进程nodejs为我们提供这么4仲方法：</p>
@@ -149,7 +149,7 @@ Event: <span class="string">'exit'</span>
 <blockquote>
 <p>{cwd: undefined,env: process.env,setsid: false }</p>
 </blockquote>
-<p>更多详细的使用方法请参照<a href="https://www.byvoid.com/blog/node-child-process-ipc" target="_blank" rel="external">byvoid大神的博客</a>和<a href="http://nodejs.org/api/child_process.html" target="_blank" rel="external">官方使用文档</a></p>
+<p>更多详细的使用方法请参照<a href="https://www.byvoid.com/blog/node-child-process-ipc" target="_blank" rel="external">byvoid的Node.js中的child_process及進程通信</a>和官方使用手册<a href="http://nodejs.org/api/child_process.html" target="_blank" rel="external">Child Process</a></p>
 <h4 id="4-练习：创建子进程（简单的express）并在30秒后关闭">4.练习：创建子进程（简单的express）并在30秒后关闭</h4>
 <p>假定你已经装好express，若没有请到？？？查看安装教程</p>
 <p>在你的工作目录下创建express项目</p>
@@ -238,7 +238,7 @@ newChildProcess(<span class="number">4000</span>);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/10/nodejs的childprocess简单使用/" data-id="ipfstzsex4hhtg0k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/10/use-childprocess-in-nodejs/" data-id="d4ifewyr2ist17zq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -248,7 +248,7 @@ newChildProcess(<span class="number">4000</span>);
 <nav id="article-nav">
   
   
-    <a href="/2014/07/10/Unity学习笔--Day1/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/07/10/Learn-Unity Day1/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Unity学习笔--Day1</div>
     </a>
@@ -284,19 +284,19 @@ newChildProcess(<span class="number">4000</span>);
       <ul>
         
           <li>
-            <a href="/2014/07/10/nodejs的childprocess简单使用/">nodejs的childprocess简单使用</a>
+            <a href="/2014/07/10/use-childprocess-in-nodejs/">nodejs的childprocess简单使用</a>
           </li>
         
           <li>
-            <a href="/2014/07/10/Unity学习笔--Day1/">Unity学习笔--Day1</a>
+            <a href="/2014/07/10/Learn-Unity Day1/">Unity学习笔--Day1</a>
           </li>
         
           <li>
-            <a href="/2014/07/09/Ubuntu主机下使用Nginx搭建nodejs+mongodb服务器/">Ubuntu主机下使用Nginx搭建nodejs+mongodb服务器</a>
+            <a href="/2014/07/09/use nginx mongodb nodejs in ubuntu/">Ubuntu主机下使用Nginx搭建nodejs+mongodb服务器</a>
           </li>
         
           <li>
-            <a href="/2014/07/08/使用Hexo搭建博客/">使用Hexo搭建博客（Windows篇）</a>
+            <a href="/2014/07/08/use hexo/">使用Hexo搭建博客（Windows篇）</a>
           </li>
         
           <li>
