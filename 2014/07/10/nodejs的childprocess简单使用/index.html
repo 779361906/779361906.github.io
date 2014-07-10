@@ -3,17 +3,56 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | 编码的小螃蟹</title>
+  <title>nodejs的childprocess简单使用 | 编码的小螃蟹</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="编码的小螃蟹">
-<meta property="og:url" content="http://yoursite.com/archives/">
+  <meta name="description" content="Node.js的进程机制
+1.为什么使用要在node.js下使用子进程？
+node.js是单线程的，为了防止主线程阻塞，nodejs通常需要开启多个子进程来处理比较消耗时间的请求。使用子进程还可以保护主进程，防止一旦某进程奔溃造成整个系统的奔溃。
+2.node.js怎么管理进程
+nodejs通过process模块来管理进程的，其中常用的有
+1
+2
+3
+4
+5
+6
+7
+process.stdin
+p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodejs的childprocess简单使用">
+<meta property="og:url" content="http://yoursite.com/2014/07/10/nodejs的childprocess简单使用/">
 <meta property="og:site_name" content="编码的小螃蟹">
-<meta property="og:description">
+<meta property="og:description" content="Node.js的进程机制
+1.为什么使用要在node.js下使用子进程？
+node.js是单线程的，为了防止主线程阻塞，nodejs通常需要开启多个子进程来处理比较消耗时间的请求。使用子进程还可以保护主进程，防止一旦某进程奔溃造成整个系统的奔溃。
+2.node.js怎么管理进程
+nodejs通过process模块来管理进程的，其中常用的有
+1
+2
+3
+4
+5
+6
+7
+process.stdin
+p">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="编码的小螃蟹">
-<meta name="twitter:description">
+<meta name="twitter:title" content="nodejs的childprocess简单使用">
+<meta name="twitter:description" content="Node.js的进程机制
+1.为什么使用要在node.js下使用子进程？
+node.js是单线程的，为了防止主线程阻塞，nodejs通常需要开启多个子进程来处理比较消耗时间的请求。使用子进程还可以保护主进程，防止一旦某进程奔溃造成整个系统的奔溃。
+2.node.js怎么管理进程
+nodejs通过process模块来管理进程的，其中常用的有
+1
+2
+3
+4
+5
+6
+7
+process.stdin
+p">
   
     <link rel="alternative" href="/atom.xml" title="编码的小螃蟹" type="application/atom+xml">
   
@@ -62,9 +101,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-nodejs的childprocess简单使用" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-nodejs的childprocess简单使用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/07/10/nodejs的childprocess简单使用/" class="article-date">
   <time datetime="2014-07-10T08:14:33.000Z" itemprop="datePublished">7月 10 2014</time>
@@ -77,8 +114,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/07/10/nodejs的childprocess简单使用/">nodejs的childprocess简单使用</a>
+    <h1 class="article-title" itemprop="name">
+      nodejs的childprocess简单使用
     </h1>
   
 
@@ -237,192 +274,20 @@ newChildProcess(<span class="number">4000</span>);
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Unity学习笔--Day1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/07/10/Unity学习笔--Day1/" class="article-date">
-  <time datetime="2014-07-10T02:56:33.000Z" itemprop="datePublished">7月 10 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/07/10/Unity学习笔--Day1/">Unity学习笔--Day1</a>
-    </h1>
+    <a href="/2014/07/10/Unity学习笔--Day1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Unity学习笔--Day1</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="About_Unity">About Unity</h2>
-<p>Unity是由Unity Technologies开发的专业游戏引擎。可在Windows 和Mac OS X下开发，可发布游戏至Windows、Mac、Wii、iPhone、Windows phone 8和Android平台。也可以利用Unity web player插件发布网页游戏，支持Mac 和Windows的网页浏览。更多信息请参考<a href="http://baike.baidu.com/view/2299410.htm?from_id=10793&amp;type=syn&amp;fromtitle=Unity&amp;fr=aladdin" target="_blank" rel="external">百度百科</a></p>
-<p>
-        
-          <p class="article-more-link">
-            <a href="/2014/07/10/Unity学习笔--Day1/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/10/Unity学习笔--Day1/" data-id="151yh19lbt201qpl" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
 
-
-  
-    <article id="post-Ubuntu主机下使用Nginx搭建nodejs+mongodb服务器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/07/09/Ubuntu主机下使用Nginx搭建nodejs+mongodb服务器/" class="article-date">
-  <time datetime="2014-07-09T10:16:18.000Z" itemprop="datePublished">7月 9 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/07/09/Ubuntu主机下使用Nginx搭建nodejs+mongodb服务器/">Ubuntu主机下使用Nginx搭建nodejs+mongodb服务器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Windows系统：可使用putty登录Ubuntu主机</p>
-<h2 id="安装Node-js">安装Node.js</h2>
-<p>下载node.js V0.10.29<code>wget http://nodejs.org/dist/v0.10.29/node-v0.10.27.tar.gz</code></p>
-<p>解压<code>tar xvf node-v0.10.29.tar.gz</code></p>
-<p>进入node-v0.10.27文件夹，确认编译环境<code>./configure</code><br>
-        
-          <p class="article-more-link">
-            <a href="/2014/07/09/Ubuntu主机下使用Nginx搭建nodejs+mongodb服务器/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/09/Ubuntu主机下使用Nginx搭建nodejs+mongodb服务器/" data-id="oxmjureltw6ntzkw" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-使用Hexo搭建博客" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/07/08/使用Hexo搭建博客/" class="article-date">
-  <time datetime="2014-07-08T08:18:39.000Z" itemprop="datePublished">7月 8 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/07/08/使用Hexo搭建博客/">使用Hexo搭建博客（Windows篇）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="关于Hexo">关于Hexo</h2>
-<p>Hexo是基于node.js的静态博客网站生成器，支持Markdown文件格式</p>
-<p><a href="http://hexo.io/" target="_blank" rel="external">Hexo官网</a></p>
-<h2 id="准备工作">准备工作</h2>
-<ul>
-<li>安装Node.js  <a href="http://nodejs.org/" target="_blank" rel="external">官网</a></li>
-<li>安装 Git  <a href="http://www.git-scm.com/" target="_blank" rel="external">官网</a></li>
-<li>注册 github 账户 <a href="http://github.com" target="_blank" rel="external">注册</a></li>
-</ul>
-
-        
-          <p class="article-more-link">
-            <a href="/2014/07/08/使用Hexo搭建博客/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/08/使用Hexo搭建博客/" data-id="h6xtamuigzhokqpq" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/07/08/hello-world/" class="article-date">
-  <time datetime="2014-07-08T07:49:41.000Z" itemprop="datePublished">7月 8 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/07/08/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/tommy351/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2>
-
-        
-          <p class="article-more-link">
-            <a href="/2014/07/08/hello-world/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/08/hello-world/" data-id="pfgskmqdcx7odm6h" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
 </section>
         
           <aside id="sidebar">

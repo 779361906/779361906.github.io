@@ -101,11 +101,33 @@ Unity是由Unity Technologies开发的专业游戏引擎。可在Windows 和Mac 
 </ol>
 <h2 id="初识Unity">初识Unity</h2>
 <p>Unity 的操作界面主要分为工程浏览器 (Project Browser)、层级视图 (Hierarchy)、工具栏 (Toolbar)、场景视图 (Scene View)、游戏视图 (Game View)、检视器 (Inspector)和<br>其他视图 (Views)。具体视图的详细介绍请参考<a href="http://edu.china.unity3d.com/learning_document/getData?file=/Manual/UnityBasics.html" target="_blank" rel="external">官方文档</a></p>
+<h2 id="创建简单的游戏场景">创建简单的游戏场景</h2>
+<ol>
+<li>创建新工程Project。菜单栏选择File —&gt; New Project 弹出项目初始化资源选项窗口，勾选“Character Controller.unityPackage”、“Standard Assets(Moblile).unityPackage”、“Skybox.UnityPackage”和“Terrain Assets.unityPackage”等4个关键的标准组件，单击“Crate”完成工程文件夹的创建。</li>
+<li>创建场景Scence，场景是一个单独的位置或区域。一个工程里面一般有多个场景。创建过程File —&gt; Save Sence 创建并保存一个场景。（建议在保存路径的时候建立一个Sences文件夹专门存放工程里的场景）。</li>
+<li>为了方便管理工程的文件，建议在工程目录下建立“Models”和“Materials”文件夹用于存放工程的模型文件和材质纹理文件。</li>
+<li><p>创建地面， Game Object —&gt; Create Other —&gt; Cube 这是创建了一个盒子。选中Cube在Inspector面板中将Transform属性修改为：<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">Position</span> : x=<span class="number">0</span>,y=<span class="number">0</span>,z=<span class="number">0</span>   设置坐标
+<span class="keyword">Scale</span> : x=<span class="number">20</span>,y=<span class="number">0.3</span>;z=<span class="number">20</span>  设置各边长度
+</pre></td></tr></table></figure><br>这样就以一个盒子设置成地面（木板）。按 Ctrl + S 保存。</p>
+</li>
+<li><p>创建灯光，Game Object —&gt; Create Other —&gt;Point Light,同上将Transform属性修改为：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="attribute">position</span>: <span class="string">x=0,y=6.5,z=0;</span>
+</pre></td></tr></table></figure><br>将Light的属性修改为：<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">Range</span> ： <span class="number">30</span> 光照范围
+insensity ：<span class="number">0.7</span> 光照强度
+</pre></td></tr></table></figure></li>
+<li>创建走动物体，将project面板内的Asset — Standard Assets — Character Controllers的“Frist Person Contrler”拖到Hierarchy面板。设置Transform属性的position的y值为1.1。使这个物体高于cube（地面）。防止播放时人物掉到地面下。删除Hierarchy中多余的Main Camera。</li>
+<li>为了方便操作和识别，将创建的物品规范命名。地板—</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/10/Unity学习笔--Day1/" data-id="fpd7uexylpdr1j8s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/10/Unity学习笔--Day1/" data-id="151yh19lbt201qpl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -113,6 +135,15 @@ Unity是由Unity Technologies开发的专业游戏引擎。可在Windows 和Mac 
   
     
 <nav id="article-nav">
+  
+    <a href="/2014/07/10/nodejs的childprocess简单使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          nodejs的childprocess简单使用
+        
+      </div>
+    </a>
   
   
     <a href="/2014/07/09/Ubuntu主机下使用Nginx搭建nodejs+mongodb服务器/" id="article-nav-older" class="article-nav-link-wrap">
@@ -139,7 +170,7 @@ Unity是由Unity Technologies开发的专业游戏引擎。可在Windows 和Mac 
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">七月 2014</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">七月 2014</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -149,6 +180,10 @@ Unity是由Unity Technologies开发的专业游戏引擎。可在Windows 和Mac 
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/07/10/nodejs的childprocess简单使用/">nodejs的childprocess简单使用</a>
+          </li>
         
           <li>
             <a href="/2014/07/10/Unity学习笔--Day1/">Unity学习笔--Day1</a>
