@@ -4,10 +4,14 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hexo使用Pacman主题并使用多说和分网 | 编码的小螃蟹</title>
+    <title>Hexo使用Pacman主题并使用多说和加网 | 编码的小螃蟹</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="crab">
+    
+    <meta name="description" content="Hexo提供多种主题可使用，喜欢Diy的人可以在默认的主题上修改，也可以使用别人提供的主题替换默认主题，还可以在别人提供主题上进行修改。本篇博客介绍的是专为国人设计的主题Pacman。
+下载、安装Pacman
+Pacman的github地址：https://github.com/A-limon/pa">
     
     
     
@@ -64,7 +68,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/07/11/changeThemes/" title="Hexo使用Pacman主题并使用多说和分网" itemprop="url">Hexo使用Pacman主题并使用多说和分网</a>
+      <a href="/2014/07/11/changeThemes/" title="Hexo使用Pacman主题并使用多说和加网" itemprop="url">Hexo使用Pacman主题并使用多说和加网</a>
   </h1>
   <p class="article-author">By
     
@@ -72,7 +76,7 @@
     </p>
   <p class="article-time">
     <time datetime="2014-07-11T01:46:32.000Z" itemprop="datePublished">7月 11 2014</time>
-    更新日期:<time datetime="2014-07-11T01:48:09.000Z" itemprop="dateModified">7月 11 2014</time>
+    更新日期:<time datetime="2014-07-12T09:29:10.000Z" itemprop="dateModified">7月 12 2014</time>
     
   </p>
 </header>
@@ -81,12 +85,58 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载、安装Pacman"><span class="toc-number">1.</span> <span class="toc-text">下载、安装Pacman</span></a></li></ol>
 		</div>
 		
-		  
+		<p>Hexo提供多种主题可使用，喜欢Diy的人可以在默认的主题上修改，也可以使用别人提供的主题替换默认主题，还可以在别人提供主题上进行修改。本篇博客介绍的是专为国人设计的主题Pacman。</p>
+<h2 id="下载、安装Pacman">下载、安装Pacman</h2>
+<p>Pacman的github地址：<a href="https://github.com/A-limon/pacman" target="_blank" rel="external">https://github.com/A-limon/pacman</a></p>
+<p>可根据github上面的命令行操作方式下载使用，也可以直接下载github提供的压缩包再进行解压使用。压缩包链接：<a href="https://codeload.github.com/A-limon/pacman/zip/master" target="_blank" rel="external">https://codeload.github.com/A-limon/pacman/zip/master</a></p>
+<p>若使用压缩包下载，解压后把文件夹的名字改为pacman并存放在你的Hexo项目的themes下。修改Hexo的——config.yml文件的theme属性，注意有空格：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="attribute">theme</span>: <span class="string">pacman</span>
+</pre></td></tr></table></figure><br>执行：<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>hexo g
+hexo s
+</pre></td></tr></table></figure><br>打开浏览器输入地址：<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>127<span class="class">.0</span><span class="class">.0</span><span class="class">.1</span><span class="pseudo">:4000</span>
+</pre></td></tr></table></figure><br>就能看到你的主题已经成功修改为Pacman了。<br><br>使用多说和加网<br>—-<br>多说<a href="http://duoshuo.com/" target="_blank" rel="external">注册</a> 适合国内用户的评论插件<br><br>加网<a href="http://www.jiathis.com/" target="_blank" rel="external">注册</a> 简单的分享插件<br><br>修改/themes/pacman/_config.yml文件<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="attribute">duoshuo</span>: <span class="string"></span>
+  <span class="attribute">enable</span>: <span class="string">true  </span>
+  <span class="attribute">short_name</span>: <span class="string">你的多说用户名   </span>
+
+<span class="objectivec">
+jiathis:
+  enable: <span class="literal">true</span> 
+  <span class="keyword">id</span>: 你的加网的<span class="keyword">id</span>
+  tsina: 你的微博<span class="keyword">id</span>，可选填。填写后用户分享自动@你</span>
+</pre></td></tr></table></figure>
+
+<p>更多修改可参考Pacman的官方博客<a href="http://yangjian.me/pacman/hello/introducing-pacman-theme/" target="_blank" rel="external">pacman主题介绍</a></p>
+<p>上传到你的github上是需要先clean，否则会出现排版错误。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>git clean
+hexo g
+hexo d
+</pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Hexo/">Hexo</a>
+  </div>
 
 
 
@@ -142,7 +192,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载、安装Pacman"><span class="toc-number">1.</span> <span class="toc-text">下载、安装Pacman</span></a></li></ol>
   </div>
 
 <div id="asidepart">
@@ -152,6 +202,15 @@
   
 
   
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
 
   <div class="rsspart">
 	<a href="null" target="_blank" title="rss">RSS 订阅</a>
