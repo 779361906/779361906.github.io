@@ -4,14 +4,20 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hexo使用Pacman主题并使用多说和加网 | 编码的小螃蟹</title>
+    <title>Unity学习笔--Day2 | 编码的小螃蟹</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="crab">
     
-    <meta name="description" content="Hexo提供多种主题可使用，喜欢Diy的人可以在默认的主题上修改，也可以使用别人提供的主题替换默认主题，还可以在别人提供主题上进行修改。本篇博客介绍的是专为国人设计的主题Pacman。
-下载、安装Pacman
-Pacman的github地址：https://github.com/A-limon/pa">
+    <meta name="description" content="Unity支持使用js，c#，boo三种语言作为脚本，推荐使用js。使用js脚本时需要注意以下几点：
+
+Unity支持的js语法和普通的js是一致的。
+使用js脚本，脚本必须与对象绑定才能生效。
+应注意脚本变量的生命周期，和通用的js有所不同，下面会具体介绍。
+
+具体使用方法：
+
+创建js脚本,鼠标">
     
     
     
@@ -68,15 +74,15 @@ Pacman的github地址：https://github.com/A-limon/pa">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/07/11/changeThemes/" title="Hexo使用Pacman主题并使用多说和加网" itemprop="url">Hexo使用Pacman主题并使用多说和加网</a>
+      <a href="/2014/07/15/Learn-Unity-Day2/" title="Unity学习笔--Day2" itemprop="url">Unity学习笔--Day2</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="crab">crab</a>
     </p>
   <p class="article-time">
-    <time datetime="2014-07-11T01:46:32.000Z" itemprop="datePublished">7月 11 2014</time>
-    更新日期:<time datetime="2014-07-12T09:37:02.000Z" itemprop="dateModified">7月 12 2014</time>
+    <time datetime="2014-07-15T02:04:39.000Z" itemprop="datePublished">7月 15 2014</time>
+    更新日期:<time datetime="2014-07-15T02:51:09.000Z" itemprop="dateModified">7月 15 2014</time>
     
   </p>
 </header>
@@ -85,23 +91,35 @@ Pacman的github地址：https://github.com/A-limon/pa">
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载、安装Pacman"><span class="toc-number">1.</span> <span class="toc-text">下载、安装Pacman</span></a></li></ol>
+		
 		</div>
 		
-		<p>Hexo提供多种主题可使用，喜欢Diy的人可以在默认的主题上修改，也可以使用别人提供的主题替换默认主题，还可以在别人提供主题上进行修改。本篇博客介绍的是专为国人设计的主题Pacman。</p>
-<h2 id="下载、安装Pacman">下载、安装Pacman</h2>
-<p>Pacman的github地址：<a href="https://github.com/A-limon/pacman" target="_blank" rel="external">https://github.com/A-limon/pacman</a></p>
-<p>可根据github上面的命令行操作方式下载使用，也可以直接下载github提供的压缩包再进行解压使用。压缩包链接：<a href="https://codeload.github.com/A-limon/pacman/zip/master" target="_blank" rel="external">https://codeload.github.com/A-limon/pacman/zip/master</a></p>
-<p>若使用压缩包下载，解压后把文件夹的名字改为pacman并存放在你的Hexo项目的themes下。修改Hexo的——config.yml文件的theme属性，注意有空格：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="attribute">theme</span>: <span class="string">pacman</span>
-</pre></td></tr></table></figure><br>执行：<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>hexo g
-hexo s
-</pre></td></tr></table></figure><br>打开浏览器输入地址：<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>127<span class="class">.0</span><span class="class">.0</span><span class="class">.1</span><span class="pseudo">:4000</span>
-</pre></td></tr></table></figure><br>就能看到你的主题已经成功修改为Pacman了。<br><br>使用多说和加网<br>—-<br><br>多说<a href="http://duoshuo.com/" target="_blank" rel="external">注册</a> 适合国内用户的评论插件<br><br>加网<a href="http://www.jiathis.com/" target="_blank" rel="external">注册</a> 简单的分享插件<br><br>修改/themes/pacman/_config.yml文件<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+		<p>Unity支持使用js，c#，boo三种语言作为脚本，推荐使用js。<br>使用js脚本时需要注意以下几点：</p>
+<ol>
+<li>Unity支持的js语法和普通的js是一致的。</li>
+<li>使用js脚本，脚本必须与对象绑定才能生效。</li>
+<li>应注意脚本变量的生命周期，和通用的js有所不同，下面会具体介绍。</li>
+</ol>
+<p>具体使用方法：</p>
+<ol>
+<li>创建js脚本,鼠标在工程目录下右击，选择“Create” —&gt; “Javascript”.生成js脚本，需要命名：<br><img src="http://wublog.qiniudn.com/20140715101517.png" alt=""></li>
+<li>编辑js脚本，选择目录下的js脚本文件，按回车。进入Unity提供的js编辑器，支持语法高亮。如果不喜欢自带的编辑器，可使用系统自带的文件管理器进入文件目录，使用你喜欢的编辑器对js脚本进行编辑。</li>
+<li>绑定对象。工程目录下选中js脚本文件，将它拖到你要绑定的对象上即可。此时点击对象查看对象的“Inspector”面板可以看到有一个js脚本名的标签栏，可在这里选择js脚本的使用，默认是使用的。</li>
+<li>js生命周期的注意事项。请参考<a href="http://mahaile.blog.51cto.com/2891586/752902/" target="_blank" rel="external">unity 脚本 function 生命周期 MonoBehaviour Mono行为</a> 和<br><a href="http://www.tuicool.com/articles/Qnui2i" target="_blank" rel="external">MonoBehaviour的前世今生</a></li>
+</ol>
+<p>主要可以理解为：</p>
+<p>OnAwake 方法:  当脚本实例被载入时Awake被调用 </p>
+<p>OnStart 方法:  Start仅在Update函数第一次被调用前调用。</p>
+<p>OnUupdate 方法 ：渲染一帧之前被调用。这里是大部分游戏行为代码被执行的地方，除了物理代码</p>
+<p>OnGUI 方法:  渲染和处理GUI事件时调用 这里不是 没帧都调用哦 </p>
+<p>FixedUpdate 方法: 这个函数在每个物理时间步被调用一次。这是处理基于物理游戏行为的地方。</p>
+<p>LateUpdat 方法 :是在所有Update函数调用后被调用。这可用于调整脚本执行顺序。例如:当物体在Update里移动时，跟随物体的相机可以在LateUpdate里实现</p>
+<p>Reset 方法 ： 重置为默认值</p>
+<p>OnDisable 方法: 当对象变为不可用或非激活状态时此函数被调用。</p>
+<p>OnDestroy 方法:当MonoBehaviour将被销毁时，这个函数被调用</p>
+<p><strong>一个人有趣的问题</strong></p>
+<p>下面的代码，执行的结果可能和你想的不一样：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -110,32 +128,41 @@ hexo s
 7
 8
 9
-</pre></td><td class="code"><pre><span class="attribute">duoshuo</span>: <span class="string"></span>
-  <span class="attribute">enable</span>: <span class="string">true  </span>
-  <span class="attribute">short_name</span>: <span class="string">你的多说用户名   </span>
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="keyword">var</span> bankAccount = <span class="number">1000</span>;
+bankAccount -= <span class="number">100</span>;
+<span class="keyword">print</span>(<span class="string">'1:'</span>+bankAccount);
+<span class="keyword">var</span> num = delNum(bankAccount);
+<span class="keyword">print</span>(<span class="string">'2:'</span>+bankAccount);
+<span class="keyword">print</span>(<span class="string">'delNum_return:'</span>+num);
+<span class="function"><span class="keyword">function</span> <span class="title">Start</span> <span class="params">()</span> {</span>
 
-<span class="objectivec">
-jiathis:
-  enable: <span class="literal">true</span> 
-  <span class="keyword">id</span>: 你的加网的<span class="keyword">id</span>
-  tsina: 你的微博<span class="keyword">id</span>，可选填。填写后用户分享自动@你</span>
-</pre></td></tr></table></figure>
+}
 
-<p>更多修改可参考Pacman的官方博客<a href="http://yangjian.me/pacman/hello/introducing-pacman-theme/" target="_blank" rel="external">pacman主题介绍</a></p>
-<p>上传到你的github上是需要先clean，否则会出现排版错误。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>git clean
-hexo g
-hexo d
-</pre></td></tr></table></figure>  
+<span class="function"><span class="keyword">function</span> <span class="title">Update</span> <span class="params">()</span> {</span>
+
+}
+<span class="function"><span class="keyword">function</span> <span class="title">delNum</span> <span class="params">(bankAccount)</span>{</span>
+	<span class="comment">//bankAccount = bankAccount;</span>
+	<span class="keyword">print</span>(<span class="string">'in_delNum:'</span>+bankAccount);
+	<span class="keyword">return</span> bankAccount;
+}
+</pre></td></tr></table></figure><br><img src="http://wublog.qiniudn.com/learnday2.png" alt=""></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Hexo/">Hexo</a>
+  <span></span> <a href="/tags/Unity/">Unity</a>
   </div>
 
 
@@ -171,19 +198,11 @@ hexo d
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2014/07/15/Learn-Unity/" title="Learn-Unity">
-  <strong>上一篇:</strong><br/>
-  <span>
-  Learn-Unity</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2014/07/10/use-childprocess-in-nodejs/"  title="nodejs的childprocess简单使用">
+<a href="/2014/07/15/Learn-Unity/"  title="Learn-Unity">
  <strong>下一篇</strong><br/> 
- <span>nodejs的childprocess简单使用
+ <span>Learn-Unity
 </span>
 </a>
 </div>
@@ -200,7 +219,7 @@ hexo d
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载、安装Pacman"><span class="toc-number">1.</span> <span class="toc-text">下载、安装Pacman</span></a></li></ol>
+  
   </div>
 
 <div id="asidepart">
