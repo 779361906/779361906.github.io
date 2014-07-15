@@ -10,6 +10,7 @@
     <meta name="author" content="crab">
     
     <meta name="description" content="About Unity
+本文参考《Unity游戏开发技术》
 Unity是由Unity Technologies开发的专业游戏引擎。可在Windows 和Mac OS X下开发，可发布游戏至Windows、Mac、Wii、iPhone、Windows phone 8和Android平台。也可以利用Unity web player插件发布网页游戏，支持Mac 和Windows的网页浏览。更多信息请参考百度百科">
     
     
@@ -75,7 +76,7 @@ Unity是由Unity Technologies开发的专业游戏引擎。可在Windows 和Mac 
     </p>
   <p class="article-time">
     <time datetime="2014-07-10T02:56:33.000Z" itemprop="datePublished">7月 10 2014</time>
-    更新日期:<time datetime="2014-07-14T13:16:43.000Z" itemprop="dateModified">7月 14 2014</time>
+    更新日期:<time datetime="2014-07-15T02:01:10.000Z" itemprop="dateModified">7月 15 2014</time>
     
   </p>
 </header>
@@ -88,6 +89,7 @@ Unity是由Unity Technologies开发的专业游戏引擎。可在Windows 和Mac 
 		</div>
 		
 		<h2 id="About_Unity">About Unity</h2>
+<p>本文参考《Unity游戏开发技术》</p>
 <p>Unity是由Unity Technologies开发的专业游戏引擎。可在Windows 和Mac OS X下开发，可发布游戏至Windows、Mac、Wii、iPhone、Windows phone 8和Android平台。也可以利用Unity web player插件发布网页游戏，支持Mac 和Windows的网页浏览。更多信息请参考<a href="http://baike.baidu.com/view/2299410.htm?from_id=10793&amp;type=syn&amp;fromtitle=Unity&amp;fr=aladdin" target="_blank" rel="external">百度百科</a></p>
 <p><a id="more"></a></p>
 <h2 id="安装Unity">安装Unity</h2>
@@ -142,8 +144,14 @@ Terrain <span class="keyword">Length</span> : <span class="number">200</span>
 <li>添加Texture2D，同上面差不多，在“Add Terrain Texture”窗口点击右边的小窗口，然后选择“Grass&amp;Rock”。具体如下图所示：<br><img src="http://wublog.qiniudn.com/select-texture2D.png" alt=""></li>
 <li>添加草丛，如下图所示：<br><img src="http://wublog.qiniudn.com/add-grass2.png" alt=""><br>然后调整画笔大小、密度和力度，在你的地图上绘制出你想达到的草丛效果。<br>此时播放动画时会出现草丛随风波动的比较厉害，可通过设置地面的风的属性改变风力。具体可参考下图：<br><img src="http://wublog.qiniudn.com/set-wind.png" alt=""></li>
 <li>添加树木，如下图所示：<br><img src="http://wublog.qiniudn.com/add-tree.png" alt=""><br>同样选择合适的笔刷进行绘制。使用小技巧（地图批量化种树）：Terrain —&gt; Mass place Trees 弹出“Place Trees”，填写“Number of trees”的数值（你当前地图上要中的树木个数）。然后点击“place”。</li>
-<li>天空盒子，在“Hierarchy”面板中选择“First Person Controller”的子对象“Main Caamera”</li>
+<li>天空盒子，在“Hierarchy”面板中选择“First Person Controller”的子对象“Main Camera”查看其“Inspector”面板设置“Clear Flags”类型为默认的“SkyBox”，“Background”设置你需要的背景颜色。</li>
+<li>选择“Main Camrea”对象，在菜单栏中执行 Component —&gt; Rendering —&gt; Skybox .然后添加你喜欢的天空素材。如下图操作：<br><img src="http://wublog.qiniudn.com/add-skybox.png" alt=""></li>
 </ol>
+<p><img src="http://wublog.qiniudn.com/QQ%E6%88%AA%E5%9B%BE20140715094849.png" alt=""></p>
+<ol>
+<li>全局天空盒子、雾和影子的效果设置。“Edit” —&gt; “Render Settings”出现全局的Inspector面板，在这里设置，可参考我的设置参数。<br><img src="http://wublog.qiniudn.com/20140715095856.png" alt=""></li>
+</ol>
+<p>到此已完成简单的游戏场景模拟设定。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
