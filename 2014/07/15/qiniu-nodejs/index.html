@@ -84,7 +84,7 @@ $ cd test
     </p>
   <p class="article-time">
     <time datetime="2014-07-15T13:47:48.000Z" itemprop="datePublished">7月 15 2014</time>
-    更新日期:<time datetime="2014-07-16T02:37:00.000Z" itemprop="dateModified">7月 16 2014</time>
+    更新日期:<time datetime="2014-07-16T02:49:35.000Z" itemprop="dateModified">7月 16 2014</time>
     
   </p>
 </header>
@@ -152,7 +152,9 @@ $ cd test
 </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">html</span>&gt;</span>
-</pre></td></tr></table></figure><br>编辑<code>server.js</code>文件，在<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td></tr></table></figure><br>编辑<code>server.js</code>文件，添加变量。（添加的位置可参考替换AccessKey/SecretKey的那张截图。）<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> testPage = fs.readFileSync(__dirname + <span class="string">'/test.html'</span>).toString();
+</pre></td></tr></table></figure><br>然后在<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="keyword">switch</span> (<span class="transposed_variable">req.</span>url) <span class="cell">{}</span>
 </pre></td></tr></table></figure><br>语句里面添加<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
